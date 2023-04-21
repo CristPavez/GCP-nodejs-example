@@ -1,10 +1,9 @@
-import { listenForMessages } from "./Subscription";
-import { publishMessage } from "./Topic";
-
 // * Libraries
 const fs = require("fs");
 const people = fs.readFileSync("./people.json");
 const { PubSub } = require("@google-cloud/pubsub");
+const publishMessage = require("./Topic");
+const listenForMessages = require("./Subscription");
 
 // * CONFIGURATION PUB/SUB PROJECT
 const projectId = "example-01-384300";
@@ -20,7 +19,7 @@ const data = people;
 // * Creates a client PubSub
 const pubSubClient = new PubSub({ projectId });
 
-export function Pubsub_General(condition) {
+function pubsub_General(condition) {
   try {
     if (condition === "publish") {
       // * publishMessage
@@ -33,3 +32,4 @@ export function Pubsub_General(condition) {
     console.info(error);
   }
 }
+module.exports = pubsub_General;

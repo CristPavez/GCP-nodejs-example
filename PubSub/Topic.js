@@ -1,4 +1,4 @@
-export async function publishMessage(topicNameOrId, data, pubSubClient) {
+async function publishMessage(topicNameOrId, data, pubSubClient) {
   // Publishes the message as a string, e.g. "Hello, world!" or JSON.stringify(someObject)
   const dataBuffer = Buffer.from(data);
   try {
@@ -11,3 +11,4 @@ export async function publishMessage(topicNameOrId, data, pubSubClient) {
     process.exitCode = 1;
   }
 }
+module.exports = publishMessage;

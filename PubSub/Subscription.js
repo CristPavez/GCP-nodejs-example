@@ -1,4 +1,4 @@
-export function listenForMessages(subscriptionNameOrId, timeout, pubSubClient) {
+function listenForMessages(subscriptionNameOrId, timeout, pubSubClient) {
   // References an existing subscription
   const subscription = pubSubClient.subscription(subscriptionNameOrId);
 
@@ -23,3 +23,4 @@ export function listenForMessages(subscriptionNameOrId, timeout, pubSubClient) {
     console.log(`${messageCount} message(s) received.`);
   }, timeout * 1000);
 }
+module.exports = listenForMessages;
